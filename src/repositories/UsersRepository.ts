@@ -1,35 +1,32 @@
+import { EntityRepository, getRepository, Repository } from "typeorm";
+
 import { User } from "../entities/User";
 import { IUsersRepository, ICreateUserDTO } from "./IUsersRepository";
 
+@EntityRepository(User)
 class UsersRepository implements IUsersRepository {
-  private users: User[];
-  private static INSTANCE: UsersRepository;
-
-  private constructor() {
-    this.users = [];
+  private repository: Repository<User>;
+  constructor() {
+    this.repository = getRepository(User);
   }
 
-  public static getInstance(): UsersRepository {
-    if (!UsersRepository.INSTANCE) {
-      UsersRepository.INSTANCE = new UsersRepository();
-    }
-    return UsersRepository.INSTANCE;
+  async create({ username, email }: ICreateUserDTO): Promise<void> {
+    const user = this.repository.create({ username, email });
+    await this.repository.save(user);
   }
 
-  create({ name, email }: ICreateUserDTO): void {
-    const user = new User();
-    Object.assign(user, { name, email, created_at: new Date() });
-    this.users.push(user);
-  }
+  // list(): User[] {
+  //   return this.users;
+  // }
 
-  list(): User[] {
-    return this.users;
-  }
-
-  findByName(name: string): User {
-    const user = this.users.find((user) => user.name === name);
-    return user;
-  }
+  // findByName(name: string): User {
+  //   const user = this.users.find((user) => user.name === name);
+  //   return user;
+  // }
+  // findById(name: string): User {
+  //   const user = this.users.find((user) => user.name === name);
+  //   return user;
+  // }
 }
 
 export { UsersRepository };

@@ -1,14 +1,16 @@
 import { User } from "../entities/User";
 
 interface ICreateUserDTO {
-  name: string;
+  id?: number;
+  username: string;
   email: string;
 }
 
 interface IUsersRepository {
-  create({ name, email }: ICreateUserDTO): void;
-  findByName(name: string): User;
-  list(): User[];
+  create({ username, email }: ICreateUserDTO): void;
+  // findByName(username: string): User;
+  // findById(username: string): User;
+  // list(): User[];
 }
 
 export { IUsersRepository, ICreateUserDTO };
