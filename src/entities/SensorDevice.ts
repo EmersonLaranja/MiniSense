@@ -12,7 +12,7 @@ import { User } from "./User";
 
 @Entity("sensorDevices")
 class SensorDevice {
-  @PrimaryGeneratedColumn() id: string;
+  @PrimaryGeneratedColumn() id: number;
 
   @Column({ unique: true }) key: string;
 
@@ -24,7 +24,7 @@ class SensorDevice {
   @JoinColumn({ name: "userId" })
   user: User;
 
-  @Column() userId: string;
+  @Column() userId: number;
 
   @OneToMany(() => DataStream, (stream) => stream.device)
   streams: DataStream[];

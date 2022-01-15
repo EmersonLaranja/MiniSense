@@ -13,7 +13,7 @@ export class DataStreams1642283189527 implements MigrationInterface {
         columns: [
           {
             name: "id",
-            type: "uuid",
+            type: "number",
             isPrimary: true,
           },
           {
@@ -31,11 +31,11 @@ export class DataStreams1642283189527 implements MigrationInterface {
           },
           {
             name: "unitId",
-            type: "string",
+            type: "number",
           },
           {
             name: "deviceId",
-            type: "string",
+            type: "number",
           },
         ],
       })

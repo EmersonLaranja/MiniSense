@@ -5,7 +5,7 @@ import { MeasurementUnit } from "./MeasurementUnit";
 
 @Entity("sensorDatas")
 class SensorData {
-  @PrimaryGeneratedColumn() id: string;
+  @PrimaryGeneratedColumn() id: number;
 
   @Column() timestamp: Date;
 

@@ -13,7 +13,7 @@ import { SensorDevice } from "./SensorDevice";
 
 @Entity("dataStreams")
 class DataStream {
-  @PrimaryGeneratedColumn() id: string;
+  @PrimaryGeneratedColumn() id: number;
 
   @Column({ unique: true }) key: string;
 
@@ -21,9 +21,9 @@ class DataStream {
 
   @Column({ default: false }) enabled: boolean;
 
-  @Column() unitId: string;
+  @Column() unitId: number;
 
-  @Column() deviceId: string;
+  @Column() deviceId: number;
 
   @ManyToOne(() => MeasurementUnit)
   measurementUnit: MeasurementUnit;

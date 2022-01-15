@@ -4,7 +4,7 @@ import { SensorDevice } from "./SensorDevice";
 
 @Entity("users")
 class User {
-  @PrimaryGeneratedColumn() id: string;
+  @PrimaryGeneratedColumn() id: number;
 
   @Column() username: string;
 

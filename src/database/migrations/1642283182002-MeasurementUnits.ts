@@ -8,7 +8,7 @@ export class MeasurementUnits1642283182002 implements MigrationInterface {
         columns: [
           {
             name: "id",
-            type: "uuid",
+            type: "number",
             isPrimary: true,
           },
           {

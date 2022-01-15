@@ -13,7 +13,7 @@ export class SensorDevices1642272213464 implements MigrationInterface {
         columns: [
           {
             name: "id",
-            type: "uuid",
+            type: "number",
             isPrimary: true,
           },
           {
@@ -31,7 +31,7 @@ export class SensorDevices1642272213464 implements MigrationInterface {
           },
           {
             name: "userId",
-            type: "string",
+            type: "number",
           },
         ],
       })
